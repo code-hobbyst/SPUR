@@ -1,0 +1,26 @@
+import numpy as np
+#Calculate Mean Absolute Percentage Error (MAPE)
+def calculate_mape(actual, predicted):
+
+    actual, predicted = np.array(actual), np.array(predicted)
+    return np.mean(np.abs((actual - predicted) / actual)) * 100  # Return percentage
+
+#Calculate Weighted Average Percentage Error (WAPE)
+def calculate_wape(actual, predicted):
+
+    actual, predicted = np.array(actual), np.array(predicted)
+    return np.sum(np.abs(actual - predicted)) / np.sum(actual) * 100  # Return percentage
+
+#Calculate U of Tehil statistic
+def calculate_theils_u(actual, predicted):
+
+    actual, predicted = np.array(actual), np.array(predicted)
+    numerator = np.sum((actual - predicted) ** 2)
+    denominator = np.sum((actual - np.mean(actual)) ** 2)
+    return np.sqrt(numerator / denominator) if denominator != 0 else np.nan
+
+#Calculate Average Relative Variance (ARV)
+def calculate_arv(actual, predicted):
+
+    actual, predicted = np.array(actual), np.array(predicted)
+    return np.mean(np.abs((actual - predicted) / actual))  # Return average relative variance
