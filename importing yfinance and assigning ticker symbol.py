@@ -3,7 +3,6 @@ import yfinance as yf
 import pandas as pd
 import time
 
-#importing yfinance and assigning ticker symbol
 ticker_symbol = "GOOGL"
 data = yf.Ticker(ticker_symbol)
 real_time_data = data.history(period="1d", interval="1m")
